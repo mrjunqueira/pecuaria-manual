@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reprodução — GestPec</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a href="../../index.html" class="sidebar-logo">
+      GestPec
+      <span>Manual de Gestão de Pecuária</span>
+    </a>
+    <nav>
+      <div class="nav-grupo">Introdução</div>
+      <ul>
+        <li><a href="../introducao.html">O que é gestão de pecuária</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária de Corte</div>
+      <ul>
+        <li><a href="../corte/index.html">Visão Geral</a></li>
+        <li><a href="../corte/cria.html">Fase de Cria</a></li>
+        <li><a href="../corte/recria.html">Fase de Recria</a></li>
+        <li><a href="../corte/engorda.html">Fase de Engorda</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária Leiteira</div>
+      <ul>
+        <li><a href="../leite/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Dupla Aptidão</div>
+      <ul>
+        <li><a href="../dupla-aptidao/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Sistema GestPec</div>
+      <ul>
+        <li><a href="fazendas.html">Fazendas e Lotes</a></li>
+        <li><a href="usuarios.html">Usuários e Perfis</a></li>
+        <li><a href="matrizes.html">Matrizes</a></li>
+        <li><a href="reprodutores.html">Reprodutores</a></li>
+        <li><a href="reproducao.html">Reprodução</a></li>
+        <li><a href="sanidade.html">Sanidade</a></li>
+        <li><a href="financeiro.html">Financeiro e Pessoal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Reprodução</h1>
+    <p class="subtitulo">Coberturas, diagnósticos de gestação, partos, crias e perdas no GestPec</p>
+
+    <h2>Fluxo reprodutivo no sistema</h2>
+    <p>
+      O módulo de reprodução do GestPec acompanha o ciclo completo desde a cobertura
+      até o registro da cria. Cada etapa é registrada de forma encadeada:
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h4>1. Cobertura</h4>
+        <p>Registro da monta ou inseminação: matriz, reprodutor, lote e tipo de cobertura.</p>
+      </div>
+      <div class="card">
+        <h4>2. Diagnóstico</h4>
+        <p>Resultado do DG vinculado à cobertura: prenha, vazia ou inconclusivo.</p>
+      </div>
+      <div class="card">
+        <h4>3. Parto</h4>
+        <p>Registro do nascimento com data, tipo (normal/distócico) e observações.</p>
+      </div>
+      <div class="card">
+        <h4>4. Cria</h4>
+        <p>Bezerro(a) nascido: sexo, peso, identificação e status (vivo/morto).</p>
+      </div>
+    </div>
+
+    <h2>Registrando uma cobertura</h2>
+    <p>
+      Acesse o menu <strong>Reprodução → Coberturas</strong> e clique em Nova Cobertura.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Matriz</td><td>Vaca ou novilha que foi coberta</td></tr>
+        <tr><td>Reprodutor</td><td>Touro ou partida de sêmen utilizada</td></tr>
+        <tr><td>Lote</td><td>Estação de monta à qual esta cobertura pertence</td></tr>
+        <tr><td>Data</td><td>Data da cobertura ou inseminação</td></tr>
+        <tr><td>Tipo</td><td>Monta natural, IA ou IATF</td></tr>
+        <tr><td>Observações</td><td>Notas livres (cio observado, protocolo usado, etc.)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Diagnóstico de gestação (DG)</h2>
+    <p>
+      Após o encerramento da estação de monta, registre o resultado do DG vinculando-o
+      à cobertura correspondente.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Resultado</th><th>Ação no sistema</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prenha</td><td>Matriz aguarda parto — fica ativa no lote</td></tr>
+        <tr><td>Vazia</td><td>Avaliar descarte ou novo protocolo; não contribui para a natalidade</td></tr>
+        <tr><td>Inconclusivo</td><td>Repetir DG após 30 dias</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Registrando um parto</h2>
+    <p>
+      Acesse <strong>Reprodução → Partos</strong> e vincule o parto à cobertura da matriz.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Matriz</td><td>Vaca que pariu</td></tr>
+        <tr><td>Cobertura</td><td>Cobertura da qual resultou este parto</td></tr>
+        <tr><td>Data do parto</td><td>Data do nascimento</td></tr>
+        <tr><td>Tipo</td><td>Normal ou distócico (com dificuldade)</td></tr>
+        <tr><td>Observações</td><td>Assistência prestada, intercorrências</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Registrando a cria (bezerro)</h2>
+    <p>
+      Após o parto, registre a cria vinculada ao parto. Cada bezerro é um registro individual.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sexo</td><td>Macho ou fêmea</td></tr>
+        <tr><td>Peso ao nascer</td><td>Em kg (opcional, mas recomendado)</td></tr>
+        <tr><td>Identificação</td><td>Brinco, tatuagem ou número interno</td></tr>
+        <tr><td>Status</td><td><code>vivo</code> ou <code>morto</code></td></tr>
+        <tr><td>Causa da morte</td><td>Se morto: diarreia, distócia, predador, etc.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>Impacto nos indicadores:</strong> cada cria com status <code>morto</code>
+        reduz a taxa de desmame do lote. A taxa de natalidade considera todos os nascidos
+        (vivos e mortos). Manter os registros atualizados garante indicadores confiáveis.
+      </p>
+    </div>
+
+    <h2>Perdas de matrizes</h2>
+    <p>
+      Quando uma matriz morre ou é descartada fora do ciclo normal de venda, registre
+      em <strong>Perdas</strong>:
+    </p>
+    <ul>
+      <li>Matriz afetada</li>
+      <li>Data da perda</li>
+      <li>Tipo: morte ou descarte</li>
+      <li>Causa: doença, acidente, problema reprodutivo, velhice, etc.</li>
+    </ul>
+    <p>
+      O registro de perdas atualiza o status da matriz para <code>morta</code> ou
+      <code>descartada</code> e mantém o histórico para análise de causas de saída do plantel.
+    </p>
+
+    <div class="nav-paginas">
+      <a href="reprodutores.html">← Reprodutores</a>
+      <a href="sanidade.html">Sanidade →</a>
+    </div>
+  </main>
+
+</div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

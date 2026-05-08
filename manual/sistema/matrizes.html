@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrizes — GestPec</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a href="../../index.html" class="sidebar-logo">
+      GestPec
+      <span>Manual de Gestão de Pecuária</span>
+    </a>
+    <nav>
+      <div class="nav-grupo">Introdução</div>
+      <ul>
+        <li><a href="../introducao.html">O que é gestão de pecuária</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária de Corte</div>
+      <ul>
+        <li><a href="../corte/index.html">Visão Geral</a></li>
+        <li><a href="../corte/cria.html">Fase de Cria</a></li>
+        <li><a href="../corte/recria.html">Fase de Recria</a></li>
+        <li><a href="../corte/engorda.html">Fase de Engorda</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária Leiteira</div>
+      <ul>
+        <li><a href="../leite/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Dupla Aptidão</div>
+      <ul>
+        <li><a href="../dupla-aptidao/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Sistema GestPec</div>
+      <ul>
+        <li><a href="fazendas.html">Fazendas e Lotes</a></li>
+        <li><a href="usuarios.html">Usuários e Perfis</a></li>
+        <li><a href="matrizes.html">Matrizes</a></li>
+        <li><a href="reprodutores.html">Reprodutores</a></li>
+        <li><a href="reproducao.html">Reprodução</a></li>
+        <li><a href="sanidade.html">Sanidade</a></li>
+        <li><a href="financeiro.html">Financeiro e Pessoal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Matrizes</h1>
+    <p class="subtitulo">Plantel de fêmeas, formas de entrada, ciclo de vida e saída do rebanho</p>
+
+    <h2>A matriz no sistema</h2>
+    <p>
+      Uma <strong>matriz</strong> é qualquer fêmea ativa ou já encerrada no plantel reprodutivo
+      da fazenda. O sistema mantém o histórico completo de cada animal — desde a entrada até
+      a saída — preservando as coberturas, partos e crias vinculadas mesmo após o animal
+      ser descartado ou morrer.
+    </p>
+
+    <h2>Status da matriz</h2>
+    <table>
+      <thead>
+        <tr><th>Status</th><th>Significado</th><th>Como é atribuído</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>ativa</code></td>
+          <td>No plantel, apta para reprodução</td>
+          <td>Padrão ao cadastrar; restaurado se necessário</td>
+        </tr>
+        <tr>
+          <td><code>descartada</code></td>
+          <td>Vendida ou retirada por decisão do produtor</td>
+          <td>Registro de Perda com tipo <em>descarte</em></td>
+        </tr>
+        <tr>
+          <td><code>morta</code></td>
+          <td>Óbito confirmado</td>
+          <td>Registro de Perda com tipo <em>morte</em></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Campos do cadastro</h2>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Identificação *</td><td>Brinco, tatuagem ou código interno — único por fazenda</td></tr>
+        <tr><td>Raça</td><td>Nelore, Angus, Girolando, Cruzado, etc.</td></tr>
+        <tr><td>Data de nascimento</td><td>Real ou estimada (marcar como estimada quando não há registro preciso)</td></tr>
+        <tr><td>Peso atual (kg)</td><td>Última pesagem — atualizado manualmente</td></tr>
+        <tr><td>Status</td><td><code>ativa</code>, <code>descartada</code> ou <code>morta</code></td></tr>
+        <tr><td>Fazenda *</td><td>Propriedade onde o animal está</td></tr>
+        <tr><td>Lote</td><td>Estação de monta à qual a matriz pertence</td></tr>
+        <tr><td>Observações / Origem</td><td>Texto livre: procedência, registro de compra, observações clínicas</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Formas de entrada no plantel</h2>
+    <p>
+      O GestPec oferece dois caminhos para registrar a entrada de uma fêmea no plantel:
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Cria própria</h4>
+        <p>
+          Bezerra que nasceu no sistema — já tem registro de parto e cria.
+          Após o desmame, o produtor cadastra a bezerra como nova matriz,
+          vinculando a origem no campo <em>Observações</em>.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Novilha / Adquirida</h4>
+        <p>
+          Fêmea que entra no plantel vinda de fora: compra, leilão, permuta
+          (ex: troca de touro por bezerras desmamadas) ou doação.
+          Formulário específico com campos de aquisição.
+        </p>
+      </div>
+    </div>
+
+    <h3>Registrando uma Novilha / Adquirida</h3>
+    <p>
+      Acesse <strong>Matrizes → Adicionar matriz → Novilha / Adquirida</strong>.
+      Este formulário é indicado para bezerras desmamadas, novilhas em recria
+      ou qualquer fêmea adquirida externamente.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Identificação *</td><td>Brinco ou código que o animal receberá na fazenda</td></tr>
+        <tr><td>Raça</td><td>Raça ou cruzamento</td></tr>
+        <tr><td>Data de nascimento</td><td>Real ou estimada (aproximada pela dentição ou peso)</td></tr>
+        <tr><td>Peso de entrada (kg)</td><td>Peso no momento da chegada à fazenda</td></tr>
+        <tr><td>Fazenda *</td><td>Propriedade de destino</td></tr>
+        <tr><td>Lote</td><td>Estação de monta para a qual a novilha será destinada</td></tr>
+        <tr><td>Data de aquisição</td><td>Data em que o animal entrou na fazenda</td></tr>
+        <tr><td>Valor pago (R$)</td><td>Custo de aquisição — lançado automaticamente como despesa</td></tr>
+        <tr><td>Origem</td><td>Procedência: nome da fazenda, leilão, troca, etc.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>Troca de touro por bezerras:</strong> quando um reprodutor sai da fazenda
+        em permuta por fêmeas, registre a saída do touro em <em>Reprodutores → Substituir</em>
+        com motivo <em>troca</em>, e registre cada bezerra recebida como
+        <em>Novilha / Adquirida</em> com a origem preenchida.
+        Os dois eventos ficam rastreados separadamente no histórico.
+      </p>
+    </div>
+
+    <h2>Ciclo de vida no sistema</h2>
+    <p>
+      Uma vez cadastrada, a matriz percorre o seguinte caminho no sistema:
+    </p>
+    <ol>
+      <li><strong>Entrada</strong> — cadastro com status <code>ativa</code></li>
+      <li><strong>Lote</strong> — vinculada a uma estação de monta</li>
+      <li><strong>Coberturas</strong> — monta natural, IA ou IATF registradas em Reprodução</li>
+      <li><strong>Diagnóstico de gestação</strong> — prenha, vazia ou inconclusivo</li>
+      <li><strong>Parto</strong> — registro do nascimento vinculado à cobertura</li>
+      <li><strong>Cria</strong> — bezerro(a) criado e acompanhado até desmame</li>
+      <li><strong>Saída</strong> — descarte ou morte registrado em Perdas</li>
+    </ol>
+    <p>
+      O histórico de coberturas e partos é preservado mesmo após a saída da matriz.
+    </p>
+
+    <h2>Saída da matriz: Perdas</h2>
+    <p>
+      Quando uma matriz morre ou é descartada, registre o evento em <strong>Perdas</strong>:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Matriz</td><td>Animal que saiu do plantel</td></tr>
+        <tr><td>Data</td><td>Data da morte ou do descarte</td></tr>
+        <tr><td>Tipo</td><td><em>morte</em> ou <em>descarte</em></td></tr>
+        <tr><td>Causa</td><td>Doença, acidente, problema reprodutivo, venda, velhice, etc.</td></tr>
+        <tr><td>Observações</td><td>Detalhes adicionais — comprador, valor da venda, laudo veterinário</td></tr>
+      </tbody>
+    </table>
+    <p>
+      O registro de Perda atualiza o status da matriz para <code>morta</code> ou
+      <code>descartada</code> automaticamente.
+    </p>
+
+    <div class="nav-paginas">
+      <a href="usuarios.html">← Usuários e Perfis</a>
+      <a href="reprodutores.html">Reprodutores →</a>
+    </div>
+  </main>
+
+</div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

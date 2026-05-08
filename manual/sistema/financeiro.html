@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financeiro — GestPec</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a href="../../index.html" class="sidebar-logo">
+      GestPec
+      <span>Manual de Gestão de Pecuária</span>
+    </a>
+    <nav>
+      <div class="nav-grupo">Introdução</div>
+      <ul>
+        <li><a href="../introducao.html">O que é gestão de pecuária</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária de Corte</div>
+      <ul>
+        <li><a href="../corte/index.html">Visão Geral</a></li>
+        <li><a href="../corte/cria.html">Fase de Cria</a></li>
+        <li><a href="../corte/recria.html">Fase de Recria</a></li>
+        <li><a href="../corte/engorda.html">Fase de Engorda</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária Leiteira</div>
+      <ul>
+        <li><a href="../leite/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Dupla Aptidão</div>
+      <ul>
+        <li><a href="../dupla-aptidao/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Sistema GestPec</div>
+      <ul>
+        <li><a href="fazendas.html">Fazendas e Lotes</a></li>
+        <li><a href="usuarios.html">Usuários e Perfis</a></li>
+        <li><a href="matrizes.html">Matrizes</a></li>
+        <li><a href="reprodutores.html">Reprodutores</a></li>
+        <li><a href="reproducao.html">Reprodução</a></li>
+        <li><a href="sanidade.html">Sanidade</a></li>
+        <li><a href="financeiro.html">Financeiro e Pessoal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Financeiro</h1>
+    <p class="subtitulo">Movimentações, custo por animal, contas bancárias, financiamentos e pessoal</p>
+
+    <h2>O módulo no sistema</h2>
+    <p>
+      O módulo financeiro do GestPec gerencia o <strong>fluxo de caixa operacional</strong>
+      da atividade pecuária. Não é um sistema de contabilidade fiscal — DRE e balanço
+      patrimonial são responsabilidade do contador, que pode usar os dados exportados
+      como base. O foco é dar ao produtor visibilidade sobre entradas, saídas e custo
+      por animal em tempo real.
+    </p>
+
+    <h2>Perfis de acesso</h2>
+    <table>
+      <thead>
+        <tr><th>Perfil</th><th>O que pode fazer no financeiro</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>superadmin</strong></td><td>Acesso total a todas as fazendas</td></tr>
+        <tr><td><strong>proprietário</strong></td><td>Lançar, editar e excluir movimentações; gerenciar contas bancárias e financiamentos; acesso ao consolidado</td></tr>
+        <tr><td><strong>gerente</strong></td><td>Lançar e editar movimentações operacionais; registrar pessoal; sem acesso a financiamentos e ao consolidado</td></tr>
+        <tr><td><strong>veterinário / leitor</strong></td><td>Sem acesso ao módulo financeiro</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Movimentações</h2>
+    <p>
+      Uma movimentação é qualquer entrada ou saída financeira da fazenda. Todas ficam
+      registradas com data, valor e categoria, e podem ser filtradas por período,
+      fazenda, tipo e categoria.
+    </p>
+
+    <h3>Campos de uma movimentação</h3>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tipo *</td><td><em>entrada</em> (receita) ou <em>saída</em> (despesa)</td></tr>
+        <tr><td>Data *</td><td>Data efetiva da movimentação</td></tr>
+        <tr><td>Valor (R$) *</td><td>Valor positivo; separador decimal: ponto ou vírgula</td></tr>
+        <tr><td>Categoria *</td><td>Texto livre em maiúsculas — autocomplete das categorias já usadas</td></tr>
+        <tr><td>Fazenda *</td><td>Propriedade a que pertence o lançamento</td></tr>
+        <tr><td>Descrição</td><td>Detalhamento opcional — fornecedor, nota fiscal, observação</td></tr>
+        <tr><td>Natureza</td><td><em>fixa</em> (mensal, previsível) ou <em>variável</em> (pontual, irregular)</td></tr>
+        <tr><td>Escopo de rateio</td><td>Veja tabela abaixo</td></tr>
+        <tr><td>Vínculos opcionais</td><td>Matriz, lote ou reprodutor específico (para custo direto)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Escopo de rateio</h3>
+    <p>
+      Define como a despesa é distribuída no cálculo de custo por animal.
+      A maioria dos lançamentos fica em <em>Vínculo direto</em>.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Escopo</th><th>Quando usar</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vínculo direto</td><td>Despesa pertence a um animal ou ao geral da fazenda — não rateada</td></tr>
+        <tr><td>Matrizes ativas</td><td>Despesa dividida igualmente entre todas as matrizes ativas da fazenda (ex: suplemento mineral do rebanho)</td></tr>
+        <tr><td>Matrizes do lote</td><td>Despesa dividida entre as matrizes de um lote específico</td></tr>
+        <tr><td>Crias reposição</td><td>Despesa dividida entre as crias com destino reposição de matriz</td></tr>
+        <tr><td>Crias comercialização</td><td>Despesa dividida entre as crias com destino comercialização</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Categorias</h3>
+    <p>
+      As categorias são definidas pelo próprio usuário — não há lista fechada.
+      O sistema armazena em maiúsculas e sugere as já usadas via autocomplete.
+      Isso garante consistência sem engessar o uso. Exemplos típicos:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Saídas (despesas)</th><th>Entradas (receitas)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SUPLEMENTO MINERAL</td><td>VENDA DE BEZERROS</td></tr>
+        <tr><td>VACINA</td><td>VENDA DE MATRIZES</td></tr>
+        <tr><td>VERMÍFUGO</td><td>VENDA DE SÊMEN</td></tr>
+        <tr><td>COMBUSTÍVEL</td><td>ARRENDAMENTO RECEBIDO</td></tr>
+        <tr><td>MANUTENÇÃO DE CERCA</td><td>SUBSÍDIO RURAL</td></tr>
+        <tr><td>COMPRA DE ANIMAL</td><td></td></tr>
+        <tr><td>FOLHA DE PAGAMENTO</td><td></td></tr>
+        <tr><td>PRESTAÇÃO DE SERVIÇO</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>Padronize as categorias desde o início:</strong> o sistema permite renomear
+        uma categoria em massa em <em>Movimentações → Gerenciar categorias</em>, consolidando
+        todos os lançamentos de uma categoria antiga para um nome novo.
+        Fazer isso cedo evita duplicidades (ex: "RAÇÃO" e "RACAO" convivendo como categorias
+        separadas).
+      </p>
+    </div>
+
+    <h2>Resumo financeiro</h2>
+    <p>
+      A aba <strong>Movimentações</strong> exibe um painel de resumo com entradas totais,
+      saídas totais e saldo do período filtrado. Um detalhe expansível mostra o total
+      por tipo e categoria, útil para identificar onde estão as maiores despesas.
+    </p>
+
+    <h2>Custo por matriz</h2>
+    <p>
+      Disponível na aba <strong>Custo por matriz</strong>. Para cada matriz ativa,
+      o sistema calcula dois tipos de custo:
+    </p>
+    <div class="cards">
+      <div class="card">
+        <h4>Custo direto</h4>
+        <p>Despesas lançadas com vínculo direto à matriz (campo <em>Matriz</em> preenchido) ou com escopo <em>vínculo direto</em> no lote dela.</p>
+      </div>
+      <div class="card">
+        <h4>Custo rateado</h4>
+        <p>Parte das despesas com escopo <em>matrizes ativas</em> ou <em>matrizes do lote</em>, dividida proporcionalmente entre as matrizes elegíveis.</p>
+      </div>
+    </div>
+    <p>
+      O resultado é o <strong>custo total por matriz</strong> no período, permitindo
+      comparar o desempenho econômico animal a animal dentro da fazenda.
+      Filtre por fazenda e período (ano, trimestre ou datas livres).
+    </p>
+
+    <h2>Custo por cria</h2>
+    <p>
+      Disponível na aba <strong>Custo por cria</strong>. Para cada cria viva, o sistema combina:
+    </p>
+    <ul>
+      <li><strong>Custo direto da mãe:</strong> despesas da matriz rateadas entre suas crias vivas</li>
+      <li><strong>Custo rateado por destino:</strong> despesas com escopo <em>crias reposição</em> ou <em>crias comercialização</em> divididas entre as crias daquele destino</li>
+    </ul>
+    <p>
+      O custo total por cria revela o quanto cada bezerra está custando até o desmame,
+      base para decisão de venda ou reposição de plantel.
+    </p>
+
+    <h2>Contas bancárias</h2>
+    <p>
+      Disponível na aba <strong>Contas bancárias</strong>. Cada fazenda pode ter uma
+      ou mais contas cadastradas para fins de organização e referência nos financiamentos.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fazenda *</td><td>Propriedade titular da conta</td></tr>
+        <tr><td>Banco *</td><td>Nome da instituição financeira</td></tr>
+        <tr><td>Agência</td><td>Número da agência (opcional)</td></tr>
+        <tr><td>Conta</td><td>Número da conta (opcional)</td></tr>
+        <tr><td>Tipo</td><td>Corrente, Poupança ou Investimento</td></tr>
+        <tr><td>Descrição</td><td>Identificação livre (ex: "Conta operacional BB")</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Financiamentos</h2>
+    <p>
+      Disponível na aba <strong>Financiamentos</strong>. O crédito rural é fundamental
+      na pecuária brasileira. O GestPec suporta quatro modalidades com cálculos distintos:
+      <strong>SAC</strong> e <strong>Price</strong> (cronograma gerado automaticamente),
+      <strong>FCO / Custeio</strong> (modelo de lançamentos), <strong>Consórcio</strong>
+      e <strong>Compra parcelada</strong> (boletos de fornecedor).
+    </p>
+
+    <h3>Campos comuns a todos os tipos</h3>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fazenda *</td><td>Propriedade beneficiada pelo crédito</td></tr>
+        <tr><td>Descrição *</td><td>Finalidade do crédito (ex: "Custeio pecuária 2025 — BB")</td></tr>
+        <tr><td>Modalidade</td><td>Pronaf, FCO Rural, Moderfrota, ABC, etc. — autocomplete</td></tr>
+        <tr><td>Conta bancária</td><td>Conta vinculada ao financiamento (opcional)</td></tr>
+        <tr><td>Observações</td><td>Número do contrato, garantias, anotações</td></tr>
+      </tbody>
+    </table>
+
+    <h3>SAC e Price — cronograma calculado</h3>
+    <p>
+      Para contratos com parcelas mensais regulares (empréstimos, Moderfrota, BNDES Rural).
+      O sistema gera o cronograma completo a partir dos dados do contrato.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Valor financiado *</td><td>Total liberado pela instituição</td></tr>
+        <tr><td>Taxa de juros (% a.a.) *</td><td>Taxa anual contratada</td></tr>
+        <tr><td>Nº de parcelas *</td><td>Quantidade de parcelas mensais</td></tr>
+        <tr><td>Data de contratação *</td><td>Data de início da operação</td></tr>
+        <tr><td>Primeiro vencimento *</td><td>Data da primeira parcela — ancora o calendário</td></tr>
+        <tr><td>Correção monetária</td><td>Opcional — <em>TR</em> para contratos SAC com correção pelo Tesouro (SAC+TR)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>Cálculo por dias corridos exatos (padrão BB):</strong> os juros de cada
+        parcela usam capitalização composta sobre o número real de dias entre vencimentos —
+        não 30 dias fixos. Fórmula: taxa diária = (1 + taxa a.a.)^(1/365) − 1; juros do
+        período = saldo × ((1 + taxa diária)^dias − 1). Para SAC+TR, o saldo é corrigido
+        pela TR do BCB antes de cada parcela, e a amortização é recalculada sobre o saldo
+        corrigido.
+      </p>
+    </div>
+
+    <p>
+      Após cadastrar o financiamento, clique em <strong>Gerar / atualizar cronograma</strong>
+      na sub-aba <em>Parcelas e Pagamentos</em> para criar todas as parcelas previstas.
+      Na listagem, as colunas <em>Juros reais</em> e <em>Amortização real</em> aparecem
+      destacadas em verde quando os valores reais registrados diferem da previsão em mais de R$ 0,01.
+    </p>
+
+    <h3>FCO / Custeio — modelo de lançamentos</h3>
+    <p>
+      Para créditos como FCO Rural, Pronaf Custeio e Pronaf Investimento, onde os juros
+      capitalizam e a amortização ocorre no aniversário anual. O controle é feito por
+      <strong>lançamentos individuais</strong> em vez de cronograma fixo.
+    </p>
+    <p>
+      Cada lançamento tem um tipo e um status:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Tipo</th><th>Efeito no saldo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>liberacao, saldo_abertura, juros, iof, seguro, multa, encargo</td><td>Somam ao saldo devedor</td></tr>
+        <tr><td>amortizacao, pagamento</td><td>Reduzem o saldo devedor</td></tr>
+      </tbody>
+    </table>
+    <p>
+      O saldo atual é sempre calculado como a soma sinalizada de todos os lançamentos com
+      status <em>realizado</em>. A sub-aba <strong>Lançamentos</strong> fica visível
+      apenas para operações FCO/Custeio e permite adicionar, editar e excluir cada entrada.
+    </p>
+    <p>
+      Use o botão <strong>Projetar</strong> para gerar automaticamente os lançamentos
+      futuros de juros e amortização. Na projeção, escolha a resolução:
+    </p>
+    <ul>
+      <li><strong>Anual (resumido):</strong> 1 lançamento de juros acumulados por aniversário — recomendado para FCO com amortização anual</li>
+      <li><strong>Mensal:</strong> 1 lançamento por mês — útil quando há obrigações mensais (IOF, seguro)</li>
+    </ul>
+
+    <h3>Consórcio</h3>
+    <p>
+      Para grupos de consórcio com parcela mensal fixa. Não há cálculo de juros —
+      o custo é a taxa de administração da administradora.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Administradora</td><td>Nome do grupo ou empresa responsável</td></tr>
+        <tr><td>Parcela mensal *</td><td>Valor fixo da prestação</td></tr>
+        <tr><td>Taxa de administração (%)</td><td>Percentual cobrado sobre o crédito total</td></tr>
+        <tr><td>Nº de parcelas *</td><td>Prazo total do consórcio</td></tr>
+        <tr><td>Primeiro vencimento *</td><td>Data da primeira parcela</td></tr>
+        <tr><td>Status *</td><td><em>ativo</em>, <em>contemplado</em> ou <em>encerrado</em></td></tr>
+      </tbody>
+    </table>
+    <p>
+      Quando o status passa a <em>contemplado</em> ou <em>encerrado</em>, aparecem campos
+      adicionais para registrar o uso da carta de crédito: bem adquirido, data de aquisição,
+      valor e fornecedor. Movimentações financeiras vinculadas ao consórcio ficam visíveis
+      na sub-aba <em>Entradas vinculadas</em>.
+    </p>
+
+    <h3>Compra parcelada</h3>
+    <p>
+      Para aquisições pagas em boletos de fornecedor — insumos, sêmen, equipamentos —
+      sem os cálculos de juros de um financiamento bancário. O valor total é dividido em
+      parcelas iguais e o sistema gera automaticamente todos os boletos ao salvar.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Descrição *</td><td>Identifica a compra — ex: "Sêmen Abr/2026 — NF 001234"</td></tr>
+        <tr><td>Valor total *</td><td>Total da nota fiscal</td></tr>
+        <tr><td>Nº de parcelas *</td><td>Quantidade de boletos</td></tr>
+        <tr><td>Primeiro vencimento *</td><td>Data do 1º boleto; os demais são mensais sequenciais</td></tr>
+      </tbody>
+    </table>
+    <div class="destaque">
+      <p>
+        <strong>Boletos gerados automaticamente:</strong> ao salvar uma compra parcelada,
+        os lançamentos previstos já existem — não é necessário entrar na sub-aba para gerá-los.
+        O botão <em>Gerar / atualizar boletos</em> continua disponível caso seja necessário
+        corrigir datas ou recriar o calendário após edição do cadastro; boletos já marcados
+        como <em>realizado</em> não são afetados.
+      </p>
+    </div>
+    <p>
+      Os boletos pendentes aparecem automaticamente em <strong>Contas a pagar</strong>. Uma
+      compra parcelada pode ser vinculada a registros de estoque de sêmen — veja
+      <a href="reprodutores.html#compras-semen">Compras de sêmen</a>.
+    </p>
+
+    <h3>Acompanhamento de parcelas e boletos</h3>
+    <p>
+      A sub-aba <strong>Boletos e Pagamentos</strong> (disponível para Compra parcelada,
+      SAC e Price) lista cada parcela com seu status. O status é clicável e abre um painel
+      de edição diretamente — não há coluna de ação separada.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Status</th><th>O que significa</th><th>Ao clicar</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Vencida</strong></td>
+          <td>Data passou, pagamento não registrado</td>
+          <td>Abre painel <em>Confirmar pagamento</em></td>
+        </tr>
+        <tr>
+          <td><strong>Paga</strong></td>
+          <td>Pagamento já confirmado</td>
+          <td>Abre painel <em>Editar pagamento</em> para corrigir dados</td>
+        </tr>
+        <tr>
+          <td><strong>A vencer</strong></td>
+          <td>Ainda dentro do prazo</td>
+          <td>Não clicável</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      O painel de confirmação/edição permite ajustar:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Pré-preenchido com</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Data de vencimento</td><td>Data original do boleto</td></tr>
+        <tr><td>Data de pagamento</td><td>Hoje (ajuste para a data real)</td></tr>
+        <tr><td>Valor pago</td><td>Valor previsto (ajuste se houve diferença)</td></tr>
+        <tr><td>Observações</td><td>Em branco — opcional</td></tr>
+      </tbody>
+    </table>
+    <div class="destaque">
+      <p>
+        <strong>Parcelas retroativas:</strong> ao registrar boletos de compras anteriores,
+        eles aparecerão todos como <em>Vencida</em>. Clique em cada um, informe a data real
+        de pagamento e confirme — o histórico do fluxo de caixa ficará correto sem distorcer
+        o período atual.
+      </p>
+    </div>
+
+    <h3>Contas a pagar</h3>
+    <p>
+      O toggle <strong>Financiamentos | Contas a pagar</strong> no topo da aba muda para
+      uma visão consolidada das obrigações futuras de todos os financiamentos ativos.
+      As parcelas são agrupadas por mês, com um badge indicando o total do mês e dois
+      cartões no topo: <em>Total previsto</em> e <em>Vencido (não pago)</em>.
+    </p>
+
+    <h3>TIR Real</h3>
+    <p>
+      A sub-aba <strong>TIR Real</strong> calcula a taxa interna de retorno efetiva da operação:
+    </p>
+    <ul>
+      <li>
+        <strong>FCO / Custeio:</strong> calculada automaticamente a partir dos lançamentos
+        <em>realizado</em> (liberação/saldo_abertura como entradas; pagamento/amortização
+        como saídas; saldo atual como fluxo terminal em hoje).
+      </li>
+      <li>
+        <strong>SAC / Price:</strong> formulário manual onde o usuário informa os fluxos
+        reais para calcular a TIR.
+      </li>
+    </ul>
+    <p>
+      O resultado é salvo no cadastro do financiamento e exibido na listagem principal.</p>
+
+    <h2>Pessoal</h2>
+    <p>
+      Disponível na aba <strong>Admin → Pessoal</strong>. Centraliza o cadastro de
+      funcionários e prestadores e agrupa todos os lançamentos de despesas com pessoas,
+      divididos em três sub-abas:
+    </p>
+
+    <h3>Cadastro</h3>
+    <p>
+      Registro permanente de cada pessoa vinculada à fazenda, com dados pessoais e
+      bancários para facilitar pagamentos recorrentes.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fazenda *</td><td>Fazenda à qual a pessoa está vinculada</td></tr>
+        <tr><td>Tipo *</td><td><em>Funcionário</em> (folha mensal) ou <em>Prestador</em> (serviço avulso)</td></tr>
+        <tr><td>Nome completo *</td><td>Nome que aparece nos lançamentos e autocomplete</td></tr>
+        <tr><td>CPF</td><td>Opcional — para referência e controle interno</td></tr>
+        <tr><td>Data de nascimento</td><td>Opcional</td></tr>
+        <tr><td>Data de contratação</td><td>Opcional</td></tr>
+        <tr><td>Salário / valor base</td><td>Valor mensal padrão; pré-preenche automaticamente a folha</td></tr>
+        <tr><td>Banco / Agência / Conta</td><td>Dados bancários para referência no pagamento</td></tr>
+        <tr><td>Chave Pix</td><td>CPF, e-mail ou telefone cadastrado no Pix</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Pessoas podem ser <strong>inativadas</strong> sem exclusão — saem dos seletores
+      mas mantêm o histórico de lançamentos. Um checkbox na listagem permite exibi-las.
+      Clique no nome para ver todos os dados cadastrados.
+    </p>
+
+    <h3>Lançar folha</h3>
+    <p>
+      Para salários e encargos mensais. Selecione fazenda, mês de competência e data
+      de pagamento; a tabela é pré-preenchida de duas formas:
+    </p>
+    <div class="cards">
+      <div class="card">
+        <h4>Pré-preencher do cadastro</h4>
+        <p>
+          Carrega todos os funcionários ativos da fazenda com o salário base já preenchido.
+          Aparece apenas quando há funcionários cadastrados — o botão indica a quantidade
+          disponível. Ajuste os valores antes de confirmar.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Carregar mês anterior</h4>
+        <p>
+          Busca os lançamentos do mês imediatamente anterior e pré-preenche os nomes,
+          deixando os valores em branco para atualização. Útil quando os valores variam
+          mês a mês ou quando o cadastro ainda não foi preenchido.
+        </p>
+      </div>
+    </div>
+    <p>
+      Use o botão <strong>+ Pessoa</strong> para adicionar linhas extras e o ícone
+      <strong>×</strong> para remover. Apenas linhas com nome e valor preenchidos são
+      registradas ao confirmar.
+    </p>
+
+    <h3>Serviço avulso</h3>
+    <p>
+      Para prestadores pontuais: diaristas, veterinários, transportadores.
+      Formulário único com nome (autocomplete baseado no histórico e no cadastro de
+      prestadores), data, valor e descrição. O mês de competência é opcional.
+    </p>
+
+    <h3>Mês de competência vs. data de pagamento</h3>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Significado</th><th>Exemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mês de competência</td>
+          <td>A qual mês o trabalho se refere</td>
+          <td>Março/2025</td>
+        </tr>
+        <tr>
+          <td>Data de pagamento</td>
+          <td>Quando o dinheiro saiu do caixa</td>
+          <td>05/04/2025</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Essa separação permite lançar folhas retroativas sem distorcer o fluxo de caixa
+      de datas passadas. Em <strong>Histórico</strong> é possível filtrar por pessoa,
+      fazenda e período, e ver o total de saídas com pessoal no intervalo selecionado.
+    </p>
+
+    <div class="destaque">
+      <p>
+        <strong>Cadastro e lançamento são independentes:</strong> é possível lançar folha
+        digitando o nome diretamente, sem cadastro prévio. O cadastro existe para agilizar
+        a rotina mensal via pré-preenchimento automático e para manter dados bancários
+        acessíveis no momento do pagamento.
+      </p>
+    </div>
+
+    <div class="nav-paginas">
+      <a href="sanidade.html">← Sanidade</a>
+      <a href="../../index.html">Início →</a>
+    </div>
+  </main>
+
+</div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

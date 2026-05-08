@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reprodutores — GestPec</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a href="../../index.html" class="sidebar-logo">
+      GestPec
+      <span>Manual de Gestão de Pecuária</span>
+    </a>
+    <nav>
+      <div class="nav-grupo">Introdução</div>
+      <ul>
+        <li><a href="../introducao.html">O que é gestão de pecuária</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária de Corte</div>
+      <ul>
+        <li><a href="../corte/index.html">Visão Geral</a></li>
+        <li><a href="../corte/cria.html">Fase de Cria</a></li>
+        <li><a href="../corte/recria.html">Fase de Recria</a></li>
+        <li><a href="../corte/engorda.html">Fase de Engorda</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária Leiteira</div>
+      <ul>
+        <li><a href="../leite/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Dupla Aptidão</div>
+      <ul>
+        <li><a href="../dupla-aptidao/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Sistema GestPec</div>
+      <ul>
+        <li><a href="fazendas.html">Fazendas e Lotes</a></li>
+        <li><a href="usuarios.html">Usuários e Perfis</a></li>
+        <li><a href="matrizes.html">Matrizes</a></li>
+        <li><a href="reprodutores.html">Reprodutores</a></li>
+        <li><a href="reproducao.html">Reprodução</a></li>
+        <li><a href="sanidade.html">Sanidade</a></li>
+        <li><a href="financeiro.html">Financeiro e Pessoal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Reprodutores</h1>
+    <p class="subtitulo">Touros e partidas de sêmen — cadastro, histórico e substituição</p>
+
+    <h2>Tipos de reprodutor</h2>
+    <p>
+      O GestPec distingue dois tipos de reprodutor, cada um com campos específicos:
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Touro</h4>
+        <p>
+          Animal físico presente na fazenda. Utilizado em monta natural.
+          Tem ciclo de vida gerenciado: entrada, uso nas coberturas e saída por
+          venda, morte, descarte ou substituição.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Sêmen</h4>
+        <p>
+          Partida de sêmen sexado ou convencional adquirida de central.
+          Utilizado em inseminação artificial (IA ou IATF). Identificado
+          por fornecedor, código de catálogo e número de partida.
+        </p>
+      </div>
+    </div>
+
+    <h2>Campos do cadastro</h2>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Touro</th><th>Sêmen</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nome *</td><td>Nome de registro ou apelido do touro</td><td>Identificação da partida ou nome do touro doador</td></tr>
+        <tr><td>Raça</td><td>Nelore, Angus, Simmental, etc.</td><td>Raça do doador</td></tr>
+        <tr><td>Registro</td><td>RGN, RGD ou código de associação de raça</td><td>—</td></tr>
+        <tr><td>Fornecedor</td><td>—</td><td>Central de sêmen, empresa genética</td></tr>
+        <tr><td>Código de catálogo</td><td>—</td><td>Código do touro doador no catálogo da central</td></tr>
+        <tr><td>Partida</td><td>—</td><td>Número ou lote da partida adquirida</td></tr>
+        <tr><td>Fazenda</td><td>Fazenda onde o touro está alocado</td><td>Fazenda que adquiriu as doses</td></tr>
+        <tr><td>Data de aquisição</td><td>Data de compra ou entrada na fazenda</td><td>Data de compra das doses</td></tr>
+        <tr><td>Valor de compra (R$)</td><td>Valor pago pelo animal</td><td>Valor pago pelas doses</td></tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>Custo de aquisição lançado automaticamente:</strong> quando o campo
+        <em>Valor de compra</em> é preenchido, o sistema cria automaticamente uma
+        movimentação de saída na categoria <em>COMPRA DE ANIMAL</em> vinculada
+        ao reprodutor, eliminando o lançamento manual no financeiro.
+      </p>
+    </div>
+
+    <h2>Reprodutores ativos</h2>
+    <p>
+      A listagem principal exibe apenas reprodutores com status <strong>ativo</strong>.
+      Ao substituir um touro, o animal anterior passa para inativo e sai da listagem —
+      mas suas coberturas históricas permanecem intactas e continuam referenciando-o.
+    </p>
+
+    <h2>Substituição de touro</h2>
+    <p>
+      Quando um touro precisa sair da fazenda — por venda, morte, descarte, troca
+      ou qualquer outro motivo — use o botão <strong>Substituir</strong> na linha
+      do animal. Esse fluxo registra a saída do touro atual e a entrada do novo
+      em uma única operação.
+    </p>
+
+    <h3>Quando usar Substituir</h3>
+    <ul>
+      <li>Touro vendido e substituído por outro animal</li>
+      <li>Touro que morreu e precisa ser reposto</li>
+      <li>Touro descartado por baixo desempenho reprodutivo</li>
+      <li>Permuta: touro saiu e entrou outro touro em troca</li>
+      <li>Troca por fêmeas: touro saiu e entraram bezerras ou novilhas</li>
+    </ul>
+
+    <div class="destaque">
+      <p>
+        <strong>Troca por fêmeas:</strong> se o touro foi trocado por bezerras desmamadas,
+        registre a saída dele aqui (motivo <em>troca</em>) e cadastre cada bezerra recebida
+        em <strong>Matrizes → Novilha / Adquirida</strong> com a origem preenchida.
+        Os dois eventos ficam rastreados separadamente.
+      </p>
+    </div>
+
+    <h3>O que o sistema registra</h3>
+    <table>
+      <thead>
+        <tr><th>Ação</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Touro anterior</td><td>Marcado como inativo — sai da listagem, mas permanece no histórico de coberturas</td></tr>
+        <tr><td>Motivo da saída</td><td>venda, morte, descarte, troca ou outro</td></tr>
+        <tr><td>Data de saída</td><td>Registrada para fins de auditoria</td></tr>
+        <tr><td>Observações da saída</td><td>Comprador, valor, circunstâncias</td></tr>
+        <tr><td>Novo touro</td><td>Criado com todos os campos de cadastro; valor de compra gera movimentação financeira</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Motivos de saída válidos</h3>
+    <table>
+      <thead>
+        <tr><th>Motivo</th><th>Quando usar</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>venda</td><td>Animal vendido a terceiro, com ou sem nota fiscal</td></tr>
+        <tr><td>morte</td><td>Óbito por doença, acidente ou causa desconhecida</td></tr>
+        <tr><td>descarte</td><td>Retirada por baixo desempenho, idade avançada ou problema sanitário</td></tr>
+        <tr><td>troca</td><td>Permuta por outro animal ou por fêmeas</td></tr>
+        <tr><td>outro</td><td>Empréstimo para outra fazenda, devolução ao vendedor, etc.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="compras-semen">Compras de sêmen — estoque e custo por touro</h2>
+    <p>
+      A aba <strong>Sêmen</strong> centraliza o controle de estoque de doses e o custo
+      por touro. O fluxo tem duas etapas independentes:
+    </p>
+    <div class="cards">
+      <div class="card">
+        <h4>1. Cadastrar o reprodutor</h4>
+        <p>
+          Em <em>Reprodutores → Novo</em>, cadastre o touro doador com tipo
+          <strong>Sêmen</strong>. Um mesmo touro que aparece em várias partidas tem
+          <strong>um único cadastro</strong> — é na compra que a partida é informada.
+        </p>
+      </div>
+      <div class="card">
+        <h4>2. Registrar a compra</h4>
+        <p>
+          Em <em>Sêmen → Compras → Nova compra</em>, informe o reprodutor, a partida,
+          a quantidade de doses, o valor por dose e a data da NF.
+          O sistema atualiza automaticamente o estoque e o custo médio.
+        </p>
+      </div>
+    </div>
+
+    <h3>Compra parcelada — NF com boletos</h3>
+    <p>
+      Quando a NF é paga em parcelas (boletos de fornecedor), vincule a compra a uma
+      <strong>Compra parcelada</strong> cadastrada no Financeiro em vez de informar
+      o valor à vista. Nesse caso:
+    </p>
+    <ul>
+      <li>O controle dos boletos fica em <em>Financeiro → Contas a pagar</em></li>
+      <li>Nenhuma movimentação avulsa é criada na compra de sêmen — o Financeiro já registra tudo</li>
+      <li>O valor por dose é informado diretamente na compra, conforme discriminado na NF</li>
+    </ul>
+    <div class="destaque">
+      <p>
+        <strong>Uma NF com vários touros:</strong> crie <strong>um único parcelamento</strong>
+        pelo valor total da NF e registre <strong>uma compra por touro</strong>, cada uma
+        vinculada ao mesmo parcelamento com o valor por dose que consta na discriminação da nota.
+        Não crie parcelamentos separados por touro — a obrigação financeira é uma só.
+      </p>
+    </div>
+
+    <h3>Sub-aba Estoque</h3>
+    <p>
+      Mostra por touro: doses compradas, doses consumidas em coberturas, saldo disponível,
+      gasto total, custo médio por dose e custo por cria nascida. Os totais no topo
+      consolidam todo o estoque da fazenda.
+    </p>
+
+    <h3>Boas práticas</h3>
+    <ul>
+      <li>Use o <em>nome do touro doador</em> no campo <strong>Nome</strong> do reprodutor — a partida vai no campo específico da compra</li>
+      <li>Preencha <em>Fornecedor</em> e <em>Código de catálogo</em> no cadastro do reprodutor para referência em garantias</li>
+      <li>Partidas diferentes do mesmo touro ficam em compras separadas — o estoque é somado</li>
+    </ul>
+
+    <div class="nav-paginas">
+      <a href="matrizes.html">← Matrizes</a>
+      <a href="reproducao.html">Reprodução →</a>
+    </div>
+  </main>
+
+</div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

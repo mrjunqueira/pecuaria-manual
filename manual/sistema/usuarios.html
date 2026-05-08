@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuários e Perfis — GestPec</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a href="../../index.html" class="sidebar-logo">
+      GestPec
+      <span>Manual de Gestão de Pecuária</span>
+    </a>
+    <nav>
+      <div class="nav-grupo">Introdução</div>
+      <ul>
+        <li><a href="../introducao.html">O que é gestão de pecuária</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária de Corte</div>
+      <ul>
+        <li><a href="../corte/index.html">Visão Geral</a></li>
+        <li><a href="../corte/cria.html">Fase de Cria</a></li>
+        <li><a href="../corte/recria.html">Fase de Recria</a></li>
+        <li><a href="../corte/engorda.html">Fase de Engorda</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária Leiteira</div>
+      <ul>
+        <li><a href="../leite/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Dupla Aptidão</div>
+      <ul>
+        <li><a href="../dupla-aptidao/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Sistema GestPec</div>
+      <ul>
+        <li><a href="fazendas.html">Fazendas e Lotes</a></li>
+        <li><a href="usuarios.html">Usuários e Perfis</a></li>
+        <li><a href="matrizes.html">Matrizes</a></li>
+        <li><a href="reprodutores.html">Reprodutores</a></li>
+        <li><a href="reproducao.html">Reprodução</a></li>
+        <li><a href="sanidade.html">Sanidade</a></li>
+        <li><a href="financeiro.html">Financeiro e Pessoal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Usuários e Perfis</h1>
+    <p class="subtitulo">Perfis de acesso, permissões por fazenda e trilha de auditoria</p>
+
+    <h2>Modelo de acesso</h2>
+    <p>
+      O GestPec é multi-tenant: cada usuário acessa apenas os dados das fazendas
+      às quais foi vinculado. O vínculo usuário ↔ fazenda é explícito e revogável a qualquer momento.
+      Remover o vínculo revoga o acesso imediatamente, sem necessidade de excluir o usuário do sistema.
+    </p>
+    <p>
+      Um mesmo usuário pode estar vinculado a mais de uma fazenda simultaneamente.
+      O <strong>proprietário</strong> gerencia os usuários das suas próprias fazendas;
+      o <strong>superadmin</strong> (equipe GestPec) tem visibilidade e edição irrestrita.
+    </p>
+
+    <h2>Perfis de acesso</h2>
+
+    <table>
+      <thead>
+        <tr><th>Perfil</th><th>Descrição do papel</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>superadmin</strong></td><td>Equipe GestPec. Acesso total ao sistema, todas as fazendas, sem restrição.</td></tr>
+        <tr><td><strong>proprietario</strong></td><td>Dono da fazenda. Acesso completo: dados operacionais, usuários e financeiro.</td></tr>
+        <tr><td><strong>gerente</strong></td><td>Operação diária: animais, lotes, coberturas, partos, perdas, custos operacionais e pessoal.</td></tr>
+        <tr><td><strong>veterinario</strong></td><td>Reprodução e diagnóstico: coberturas, diagnósticos de gestação, partos e crias.</td></tr>
+        <tr><td><strong>leitor</strong></td><td>Somente visualização dos dados zootécnicos. Sem acesso financeiro e sem edição.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Matriz de permissões</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Ação</th>
+          <th>proprietario</th>
+          <th>gerente</th>
+          <th>veterinario</th>
+          <th>leitor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Configurar fazenda e lotes</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Gerenciar usuários da fazenda</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Matrizes e reprodutores (cadastro e edição)</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td>Coberturas e diagnósticos de gestação</td><td>✓</td><td>✓</td><td>✓</td><td>—</td></tr>
+        <tr><td>Partos e crias</td><td>✓</td><td>✓</td><td>✓</td><td>—</td></tr>
+        <tr><td>Perdas (mortes e descartes)</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td>Lançamentos financeiros e pessoal</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+        <tr><td>Financeiro consolidado e contas bancárias</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Visualizar dados zootécnicos</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Quem assume cada perfil na prática</h2>
+
+    <h3>Proprietário</h3>
+    <ul>
+      <li>O dono da propriedade ou do grupo de fazendas</li>
+      <li>O sócio majoritário com responsabilidade financeira</li>
+      <li>Quem gerencia os acessos e revoga vínculos de outros usuários</li>
+    </ul>
+
+    <h3>Gerente</h3>
+    <ul>
+      <li>O administrador residente ou gerente de campo</li>
+      <li>O capataz com responsabilidade sobre o rebanho</li>
+      <li>O consultor zootécnico com acesso operacional pleno</li>
+    </ul>
+
+    <h3>Veterinário</h3>
+    <ul>
+      <li>O médico veterinário responsável técnico</li>
+      <li>O técnico que executa protocolos reprodutivos</li>
+      <li>O especialista em reprodução contratado para a estação de monta</li>
+    </ul>
+
+    <h3>Leitor</h3>
+    <ul>
+      <li>Funcionário do campo que consulta fichas de animais</li>
+      <li>Sócio com participação passiva</li>
+      <li>Técnico de extensão rural em acompanhamento</li>
+    </ul>
+
+    <h2>Gerenciamento de usuários na interface</h2>
+
+    <h3>Listagem e filtro</h3>
+    <p>
+      A tela de usuários exibe uma tabela com nome, e-mail, perfil, fazendas vinculadas e data de cadastro.
+      A coluna <strong>Fazendas</strong> lista todas as fazendas às quais o usuário está associado,
+      facilitando a identificação de vínculos sem precisar abrir cada cadastro.
+    </p>
+    <p>
+      O <strong>filtro por fazenda</strong> (disponível acima da tabela) restringe a listagem
+      aos usuários vinculados àquela fazenda específica. O superadmin, que enxerga todos os
+      usuários do sistema, é quem mais se beneficia desse filtro; o proprietário já vê
+      naturalmente apenas os usuários das suas fazendas.
+    </p>
+
+    <h3>Criação de usuário</h3>
+    <p>
+      Ao cadastrar um usuário, o sistema verifica se o e-mail já existe. Se existir,
+      apenas o vínculo com a fazenda é criado — o cadastro original é preservado e
+      o usuário não é duplicado.
+    </p>
+    <div class="destaque">
+      <p>
+        <strong>Restrição de perfil na criação:</strong> o proprietário pode criar usuários
+        com perfis <em>gerente</em>, <em>veterinário</em>, <em>leitor</em> e
+        <em>proprietário</em> (para sócios ou cônjuges que precisam de acesso pleno à fazenda).
+        Somente o superadmin pode atribuir o perfil <em>superadmin</em>.
+      </p>
+    </div>
+
+    <h3>Edição de usuário</h3>
+    <p>
+      O proprietário pode editar usuários das suas fazendas, desde que esses usuários
+      não tenham perfil superadmin. O superadmin pode editar qualquer usuário.
+    </p>
+    <p>
+      Quando o superadmin abre o cadastro de um usuário operacional (leitor, gerente ou veterinário),
+      o sistema exibe um <strong>aviso visual</strong> com as fazendas vinculadas a esse usuário,
+      servindo como lembrete de contexto antes de qualquer alteração.
+    </p>
+
+    <h3>Auto-edição de perfil bloqueada</h3>
+    <p>
+      Nenhum usuário pode alterar o próprio perfil — independentemente do perfil que possui.
+      Ao abrir o próprio cadastro, o campo de perfil aparece desabilitado, apenas para leitura.
+      Isso evita escalonamento acidental de privilégios.
+    </p>
+
+    <h3>Exclusão</h3>
+    <p>
+      Apenas o superadmin pode excluir usuários. Não é possível excluir o próprio cadastro.
+      Para remover o acesso de um usuário a uma fazenda sem excluí-lo do sistema,
+      utilize a remoção do vínculo na aba de vínculos do cadastro.
+    </p>
+
+    <h2>Trilha de auditoria</h2>
+    <p>
+      Em vez de fluxos de aprovação que geram atrito operacional, o GestPec registra
+      automaticamente <strong>quem fez o quê e quando</strong> em todas as ações de escrita.
+      O proprietário pode consultar o histórico de alterações a qualquer momento.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h4>O que é registrado</h4>
+        <p>Criação, edição e exclusão de qualquer registro — com usuário, data, hora e dado anterior.</p>
+      </div>
+      <div class="card">
+        <h4>Quem vê</h4>
+        <p>Proprietário e superadmin. Gerente, veterinário e leitor não têm acesso à trilha.</p>
+      </div>
+      <div class="card">
+        <h4>Valor prático</h4>
+        <p>Identifica inconsistências, rastreia erros de lançamento e garante responsabilização sem burocracia.</p>
+      </div>
+    </div>
+
+    <div class="destaque">
+      <p>
+        <strong>Por que não aprovação hierárquica:</strong> no campo, um veterinário que registra
+        um diagnóstico de gestação não pode esperar aprovação do proprietário. A trilha de auditoria
+        garante controle sem criar gargalos operacionais.
+      </p>
+    </div>
+
+    <h2>Segurança e sessão</h2>
+    <ul>
+      <li>Senhas armazenadas com hash bcrypt — nunca em texto puro</li>
+      <li>Autenticação via token JWT com validade de 8 horas</li>
+      <li>Cada fazenda é um domínio isolado — usuário A não enxerga dados da fazenda B sem vínculo explícito</li>
+      <li>Remover o vínculo usuário ↔ fazenda revoga o acesso imediatamente</li>
+    </ul>
+
+    <h2>Convites de acesso</h2>
+    <p>
+      O GestPec oferece um fluxo de convite por link para integrar novos clientes no
+      modelo SaaS. Em vez de criar a conta manualmente, o superadmin gera um convite
+      vinculado a um e-mail específico e envia o link; o destinatário define seu próprio
+      nome e senha ao abrir o link.
+    </p>
+
+    <div class="destaque">
+      <p>
+        <strong>Quem pode gerenciar convites:</strong> apenas o superadmin (equipe GestPec).
+        A sub-aba <em>Convites</em> aparece na tela de Usuários somente quando o usuário
+        logado tem esse perfil.
+      </p>
+    </div>
+
+    <h3>Fluxo completo</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>1. Criar o convite</h4>
+        <p>
+          Na sub-aba <em>Convites</em>, informe o e-mail do novo proprietário e clique em
+          <em>Criar convite</em>. O sistema gera um token único com validade de 7 dias e
+          exibe o link pronto para copiar.
+        </p>
+      </div>
+      <div class="card">
+        <h4>2. Enviar o link</h4>
+        <p>
+          Use o botão <em>Copiar link</em> e envie por e-mail, WhatsApp ou qualquer canal.
+          O link contém o token e aponta diretamente para a tela de cadastro do novo usuário.
+        </p>
+      </div>
+      <div class="card">
+        <h4>3. O destinatário cria a conta</h4>
+        <p>
+          Ao abrir o link, o sistema valida o token e exibe um formulário com o e-mail
+          já preenchido. O destinatário informa apenas seu nome completo e cria uma senha.
+          Ao confirmar, a conta é criada com perfil <em>proprietário</em> e o login ocorre
+          automaticamente.
+        </p>
+      </div>
+    </div>
+
+    <h3>Status dos convites</h3>
+    <table>
+      <thead>
+        <tr><th>Status</th><th>Significado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pendente</td><td>Gerado, ainda não aceito pelo destinatário</td></tr>
+        <tr><td>Aceito</td><td>Conta criada com sucesso — token consumido</td></tr>
+        <tr><td>Expirado</td><td>Validade de 7 dias vencida sem uso</td></tr>
+      </tbody>
+    </table>
+    <p>
+      A listagem exibe todos os convites com e-mail, status, data de criação e validade.
+      Convites pendentes e expirados podem ser excluídos. Não é possível reativar um
+      token expirado — gere um novo convite para o mesmo e-mail se necessário.
+    </p>
+
+    <div class="destaque">
+      <p>
+        <strong>Após o acesso:</strong> o novo proprietário entra no sistema sem nenhuma
+        fazenda vinculada. O superadmin deve criar as fazendas e realizar os vínculos
+        necessários, ou o próprio proprietário pode cadastrar suas fazendas a partir da
+        aba <em>Fazendas</em>.
+      </p>
+    </div>
+
+    <div class="nav-paginas">
+      <a href="fazendas.html">← Fazendas e Lotes</a>
+      <a href="matrizes.html">Matrizes →</a>
+    </div>
+  </main>
+
+</div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

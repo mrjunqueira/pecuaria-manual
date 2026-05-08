@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fazendas e Lotes — GestPec</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a href="../../index.html" class="sidebar-logo">
+      GestPec
+      <span>Manual de Gestão de Pecuária</span>
+    </a>
+    <nav>
+      <div class="nav-grupo">Introdução</div>
+      <ul>
+        <li><a href="../introducao.html">O que é gestão de pecuária</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária de Corte</div>
+      <ul>
+        <li><a href="../corte/index.html">Visão Geral</a></li>
+        <li><a href="../corte/cria.html">Fase de Cria</a></li>
+        <li><a href="../corte/recria.html">Fase de Recria</a></li>
+        <li><a href="../corte/engorda.html">Fase de Engorda</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária Leiteira</div>
+      <ul>
+        <li><a href="../leite/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Dupla Aptidão</div>
+      <ul>
+        <li><a href="../dupla-aptidao/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Sistema GestPec</div>
+      <ul>
+        <li><a href="fazendas.html">Fazendas e Lotes</a></li>
+        <li><a href="usuarios.html">Usuários e Perfis</a></li>
+        <li><a href="matrizes.html">Matrizes</a></li>
+        <li><a href="reprodutores.html">Reprodutores</a></li>
+        <li><a href="reproducao.html">Reprodução</a></li>
+        <li><a href="sanidade.html">Sanidade</a></li>
+        <li><a href="financeiro.html">Financeiro e Pessoal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Fazendas e Lotes</h1>
+    <p class="subtitulo">Cadastro de propriedades, registros legais, lotes e organização do rebanho</p>
+
+    <h2>A fazenda como unidade base</h2>
+    <p>
+      No GestPec, a <strong>fazenda</strong> é a unidade organizacional central.
+      Todos os animais, usuários e registros estão vinculados a uma fazenda.
+      Um mesmo proprietário pode gerenciar múltiplas fazendas, com visão financeira
+      consolidada entre todas elas.
+    </p>
+
+    <h2>Cadastro da fazenda</h2>
+    <p>
+      Somente o <strong>proprietário</strong> pode criar e editar os dados cadastrais
+      da fazenda. Os campos estão organizados em três grupos:
+    </p>
+
+    <h3>Identificação básica</h3>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nome da fazenda</td><td>Nome de uso comum da propriedade</td></tr>
+        <tr><td>Município / Estado</td><td>Localização para filtros e relatórios regionais</td></tr>
+        <tr><td>Área total (ha)</td><td>Área total escriturada</td></tr>
+        <tr><td>Área de pastagem (ha)</td><td>Área efetiva de pastagem</td></tr>
+        <tr><td>Atividade principal</td><td>Corte, Leite ou Dupla Aptidão (ver detalhamento abaixo)</td></tr>
+        <tr><td>Responsável técnico</td><td>Nome e CRMV do médico veterinário responsável</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Especialização da atividade</h3>
+    <p>
+      A atividade principal define o <em>tipo</em> de pecuária. A especialização define
+      <em>quais fases</em> a propriedade opera — o que impacta quais módulos, indicadores
+      e relatórios ficam disponíveis para aquela fazenda.
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Atividade principal</th><th>Especialização disponível</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4"><strong>Corte</strong></td>
+          <td>☐ Cria</td>
+          <td>Do nascimento ao desmame (~8 meses)</td>
+        </tr>
+        <tr>
+          <td>☐ Recria</td>
+          <td>Do desmame ao peso de entrada na engorda</td>
+        </tr>
+        <tr>
+          <td>☐ Engorda</td>
+          <td>Do peso de entrada até o abate</td>
+        </tr>
+        <tr>
+          <td><em>Todas marcadas = Ciclo Completo</em></td>
+          <td>A fazenda opera as três fases</td>
+        </tr>
+        <tr>
+          <td><strong>Leite</strong></td>
+          <td>—</td>
+          <td>Sub-atividades (cria de bezerros, recria de novilhas) são implícitas em toda leiteira</td>
+        </tr>
+        <tr>
+          <td><strong>Dupla Aptidão</strong></td>
+          <td>—</td>
+          <td>Sem subdivisão necessária — a lógica de carne e leite é gerida pelo sistema de forma integrada</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>Por que isso importa no sistema:</strong> uma fazenda de <em>Corte — Engorda</em>
+        não realiza coberturas nem registra partos — esses módulos ficam ocultos ou desabilitados.
+        Uma fazenda de <em>Corte — Cria + Recria</em> tem o módulo reprodutivo ativo mas
+        não exibe indicadores de confinamento. A especialização ajusta a interface ao que
+        a fazenda realmente faz.
+      </p>
+    </div>
+
+    <h3>Registros legais e ambientais</h3>
+    <table>
+      <thead>
+        <tr><th>Registro</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>CAR</strong></td><td>Cadastro Ambiental Rural — obrigatório para todas as propriedades rurais. Formato: XX-XXXXXXX-XXXX.XXXX.XXXX.XXXX</td></tr>
+        <tr><td><strong>Código INCRA</strong></td><td>Identificação do imóvel rural no INCRA (15 dígitos)</td></tr>
+        <tr><td><strong>NIRF / ITR</strong></td><td>Número do imóvel na Receita Federal para o Imposto Territorial Rural</td></tr>
+        <tr><td><strong>Inscrição estadual agropecuária</strong></td><td>Registro no órgão estadual de defesa agropecuária (ADAPAR, IMA, IDARON, ADAB, etc.)</td></tr>
+        <tr><td><strong>Licença ambiental</strong></td><td>Número e validade da licença, quando exigida pelo estado</td></tr>
+        <tr><td><strong>Outorga de água</strong></td><td>Número e órgão emissor, quando houver captação de recurso hídrico</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Dados do titular</h3>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nome / Razão social</td><td>Pessoa física ou jurídica titular da propriedade</td></tr>
+        <tr><td>CPF / CNPJ</td><td>Documento do titular — usado em emissão de GTA e documentos</td></tr>
+        <tr><td>Inscrição no produtor rural</td><td>Cadastro estadual de produtor rural (varia por estado)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>CAR obrigatório:</strong> desde 2016, imóveis rurais sem CAR estão sujeitos
+        a restrições de crédito rural. O número do CAR é exigido em financiamentos do
+        Pronaf, Pronamp e demais linhas do crédito rural oficial.
+      </p>
+    </div>
+
+    <h2>Lotes — a estação de monta</h2>
+    <p>
+      Um <strong>lote</strong> representa uma estação de monta em uma fazenda. É a unidade
+      de análise de desempenho reprodutivo: agrupa todas as matrizes expostas em um período
+      e calcula os indicadores de natalidade e desmame com base nos partos e crias registrados.
+    </p>
+
+    <h3>Como criar um lote</h3>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th><th>Exemplo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Estação de monta</td><td>Nome ou identificação da EM</td><td>EM Outubro 2024</td></tr>
+        <tr><td>Ano</td><td>Ano de referência</td><td>2024</td></tr>
+        <tr><td>Data início / fim</td><td>Período das coberturas</td><td>01/10 a 31/12/2024</td></tr>
+        <tr><td>Matrizes expostas</td><td>Vacas e novilhas que entraram na EM</td><td>85</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Indicadores calculados por lote</h2>
+    <div class="cards">
+      <div class="card">
+        <h4>Taxa de Natalidade</h4>
+        <p>Bezerros nascidos ÷ matrizes expostas × 100.</p>
+      </div>
+      <div class="card">
+        <h4>Taxa de Desmame</h4>
+        <p>(Nascidos − mortos) ÷ matrizes expostas × 100.</p>
+      </div>
+    </div>
+
+    <h2>Status da matriz</h2>
+    <table>
+      <thead>
+        <tr><th>Status</th><th>Significado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>ativa</code></td><td>No plantel, apta para reprodução</td></tr>
+        <tr><td><code>descartada</code></td><td>Vendida ou retirada por decisão do produtor</td></tr>
+        <tr><td><code>morta</code></td><td>Óbito — registrado em Perdas com causa</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Reprodutores</h2>
+    <p>
+      Os <strong>reprodutores</strong> (touros ou partidas de sêmen) são cadastrados por fazenda
+      e utilizados nas coberturas. O sistema registra monta natural, IA e IATF.
+    </p>
+
+    <div class="nav-paginas">
+      <a href="../dupla-aptidao/index.html">← Dupla Aptidão</a>
+      <a href="usuarios.html">Usuários e Perfis →</a>
+    </div>
+  </main>
+
+</div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

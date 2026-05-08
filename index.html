@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GestPec — Manual de Gestão de Pecuária</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .home { max-width: 780px; margin: 60px auto; padding: 0 32px; }
+    .home h1 { font-size: 2.2rem; margin-bottom: 6px; }
+    .home .lead { font-size: 1.1rem; color: var(--texto-leve); margin-bottom: 40px; }
+    .secoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .secao { background: var(--verde-fundo); border: 1px solid var(--borda); border-radius: 10px; padding: 24px; text-decoration: none; color: inherit; display: block; transition: border-color 0.15s; }
+    .secao:hover { border-color: var(--verde-claro); }
+    .secao h3 { color: var(--verde); margin-bottom: 8px; }
+    .secao p { font-size: 0.85rem; color: var(--texto-leve); margin: 0; }
+  </style>
+</head>
+<body>
+<div class="home">
+  <h1>GestPec</h1>
+  <p class="lead">Manual de Gestão de Pecuária — referência técnica e guia do sistema</p>
+
+  <div class="secoes">
+    <a class="secao" href="manual/introducao.html">
+      <h3>Introdução</h3>
+      <p>O que é gestão de pecuária e como este manual está organizado</p>
+    </a>
+    <a class="secao" href="manual/corte/index.html">
+      <h3>Pecuária de Corte</h3>
+      <p>Cria, recria, engorda e ciclo completo</p>
+    </a>
+    <a class="secao" href="manual/leite/index.html">
+      <h3>Pecuária Leiteira</h3>
+      <p>Manejo de vacas leiteiras, ordenha e produção</p>
+    </a>
+    <a class="secao" href="manual/dupla-aptidao/index.html">
+      <h3>Dupla Aptidão</h3>
+      <p>Raças e manejo para produção de carne e leite</p>
+    </a>
+    <a class="secao" href="manual/sistema/fazendas.html">
+      <h3>Sistema GestPec</h3>
+      <p>Guia de uso — fazendas, usuários, reprodução e indicadores</p>
+    </a>
+  </div>
+</div>
+</body>
+</html>

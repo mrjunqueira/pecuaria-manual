@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanidade — GestPec</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <a href="../../index.html" class="sidebar-logo">
+      GestPec
+      <span>Manual de Gestão de Pecuária</span>
+    </a>
+    <nav>
+      <div class="nav-grupo">Introdução</div>
+      <ul>
+        <li><a href="../introducao.html">O que é gestão de pecuária</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária de Corte</div>
+      <ul>
+        <li><a href="../corte/index.html">Visão Geral</a></li>
+        <li><a href="../corte/cria.html">Fase de Cria</a></li>
+        <li><a href="../corte/recria.html">Fase de Recria</a></li>
+        <li><a href="../corte/engorda.html">Fase de Engorda</a></li>
+      </ul>
+
+      <div class="nav-grupo">Pecuária Leiteira</div>
+      <ul>
+        <li><a href="../leite/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Dupla Aptidão</div>
+      <ul>
+        <li><a href="../dupla-aptidao/index.html">Visão Geral</a></li>
+      </ul>
+
+      <div class="nav-grupo">Sistema GestPec</div>
+      <ul>
+        <li><a href="fazendas.html">Fazendas e Lotes</a></li>
+        <li><a href="usuarios.html">Usuários e Perfis</a></li>
+        <li><a href="matrizes.html">Matrizes</a></li>
+        <li><a href="reprodutores.html">Reprodutores</a></li>
+        <li><a href="reproducao.html">Reprodução</a></li>
+        <li><a href="sanidade.html">Sanidade</a></li>
+        <li><a href="financeiro.html">Financeiro e Pessoal</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Sanidade</h1>
+    <p class="subtitulo">Vacinações, tratamentos individuais e estoque de insumos veterinários</p>
+
+    <h2>Visão geral</h2>
+    <p>
+      O módulo de sanidade está disponível em <strong>Reprodução → Sanidade</strong> e organiza
+      três sub-abas: <em>Vacinações</em>, <em>Tratamentos</em> e <em>Estoque</em>.
+      As duas primeiras registram o histórico clínico do rebanho; a terceira controla o
+      estoque de medicamentos e vacinas com integração automática ao financeiro.
+    </p>
+
+    <h2>Vacinações</h2>
+    <p>
+      Registra campanhas de vacinação, vermifugação e outros eventos sanitários coletivos
+      aplicados a um lote inteiro ou ao rebanho geral de uma fazenda. Não é vinculada a um
+      animal individual — use Tratamentos para isso.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fazenda *</td><td>Propriedade onde o evento foi realizado</td></tr>
+        <tr><td>Lote</td><td>Lote específico ou vazio para rebanho geral</td></tr>
+        <tr><td>Tipo *</td><td><em>Vacinação</em>, <em>Vermifugação</em> ou <em>Outro</em> — exibido como badge colorido na listagem</td></tr>
+        <tr><td>Produto *</td><td>Nome do imunobiológico ou produto (ex: Raiva, Polivalente 10 doenças, Ivermectina). O campo sugere automaticamente os produtos mais comuns ao digitar.</td></tr>
+        <tr><td>Data de aplicação *</td><td>Data efetiva do evento</td></tr>
+        <tr><td>Próxima dose</td><td>Data prevista para reforço — usada pelo painel de alertas</td></tr>
+        <tr><td>Qtd animais</td><td>Total de animais tratados — base do rateio de custo por animal</td></tr>
+        <tr><td>Aplica-se a</td><td><em>Todos os animais</em>, <em>Somente fêmeas</em> ou <em>Somente machos</em> — determina quais animais recebem o rateio de custo</td></tr>
+        <tr><td>Honorário / serviço (R$)</td><td>Valor pago ao veterinário ou prestador — gera movimentação financeira automática</td></tr>
+        <tr><td>Responsável</td><td>Técnico ou veterinário que aplicou</td></tr>
+        <tr><td>Insumo do estoque</td><td>Vínculo opcional com produto cadastrado no estoque</td></tr>
+        <tr><td>Qtd usada</td><td>Quantidade descontada do estoque (visível ao selecionar insumo)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="destaque">
+      <p>
+        <strong>Painel de alertas de próxima dose:</strong> um banner amarelo aparece
+        automaticamente no topo da aba quando há aplicações com <em>próxima dose</em>
+        prevista para os próximos 30 dias. Itens com data já vencida aparecem em vermelho.
+        O painel lista produto, fazenda/lote e data, permitindo identificar pendências
+        sem precisar percorrer a listagem manualmente.
+      </p>
+    </div>
+
+    <div class="destaque">
+      <p>
+        <strong>Rateio de custo por animal:</strong> ao informar custo de insumo ou honorário,
+        o sistema calcula automaticamente o valor por cabeça (custo total ÷ quantidade de animais)
+        e registra o custo individual para <strong>todas as matrizes ativas e crias vivas</strong>
+        no escopo definido (fazenda, lote e filtro de sexo). Esses valores alimentam os
+        painéis de <em>Custo por matriz</em> e <em>Custo por cria</em> no módulo Financeiro.
+      </p>
+    </div>
+
+    <h2>Tratamentos</h2>
+    <p>
+      Registra tratamentos individuais — um animal por vez (matriz ou cria). Ideal para
+      doenças, lesões e protocolos que envolvem medicamento, dose e via de aplicação.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Campo</th><th>Descrição</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Fazenda *</td><td>Fazenda do animal</td></tr>
+        <tr><td>Tipo *</td><td><em>Matriz</em> ou <em>Cria</em></td></tr>
+        <tr><td>Animal *</td><td>Selecionado da lista de animais ativos da fazenda</td></tr>
+        <tr><td>Data início *</td><td>Início do protocolo de tratamento</td></tr>
+        <tr><td>Data fim</td><td>Vazio indica tratamento em curso — filtrável na listagem</td></tr>
+        <tr><td>Diagnóstico</td><td>Descrição clínica (ex: Pneumonia, Diarreia)</td></tr>
+        <tr><td>Medicamento *</td><td>Nome do produto utilizado</td></tr>
+        <tr><td>Dose</td><td>Quantidade aplicada (ex: 10 ml)</td></tr>
+        <tr><td>Via</td><td>IM, SC, IV, oral ou tópico</td></tr>
+        <tr><td>Responsável</td><td>Técnico ou veterinário responsável</td></tr>
+        <tr><td>Insumo do estoque</td><td>Vínculo opcional com produto cadastrado no estoque</td></tr>
+        <tr><td>Qtd usada</td><td>Quantidade descontada do estoque (visível ao selecionar insumo)</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      O filtro <strong>Em curso</strong> exibe apenas os tratamentos sem data de fim,
+      permitindo acompanhar os animais que ainda estão sob protocolo.
+    </p>
+
+    <h2>Estoque de insumos</h2>
+    <p>
+      Controla o saldo de medicamentos, vacinas e outros insumos veterinários.
+      O modelo segue a mesma lógica do estoque de sêmen: entradas são registradas
+      explicitamente; o consumo é descontado automaticamente cada vez que uma vacinação
+      ou tratamento vincula o produto. <strong>O saldo pode ficar negativo</strong> — o
+      sistema não bloqueia o uso sem estoque, apenas sinaliza.
+    </p>
+
+    <h3>Fluxo de dados</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>1. Cadastrar o insumo</h4>
+        <p>
+          Feito uma única vez. Informe nome, unidade de medida (ml, dose, frasco, comprimido…)
+          e categoria (medicamento, vacina ou outro). O insumo fica disponível para todas as
+          operações futuras daquela fazenda.
+        </p>
+      </div>
+      <div class="card">
+        <h4>2. Registrar uma compra</h4>
+        <p>
+          Cada aquisição é uma <em>entrada</em>: selecione o insumo, informe quantidade, data
+          e valor unitário. O sistema cria automaticamente a movimentação financeira na
+          categoria <em>MEDICAMENTOS</em> ou <em>VACINAS</em> — não é necessário lançar
+          separado no financeiro.
+        </p>
+      </div>
+      <div class="card">
+        <h4>3. Registrar o uso</h4>
+        <p>
+          Ao salvar uma vacinação ou tratamento, selecione o campo <em>Insumo do estoque</em>
+          e informe a quantidade usada. O saldo é descontado imediatamente. Se o campo
+          ficar vazio, o registro clínico é salvo normalmente sem afetar o estoque.
+        </p>
+      </div>
+    </div>
+
+    <div class="destaque">
+      <p>
+        <strong>Porta de entrada é sempre o Estoque:</strong> ao registrar uma compra pelo
+        Estoque, a movimentação financeira é gerada automaticamente. Lançar a mesma compra
+        manualmente no Financeiro criaria uma duplicidade — use apenas um caminho.
+        Para insumos sem relação com sanidade animal (ex: impermeabilizante para cercas,
+        combustível), o lançamento deve ser feito diretamente no Financeiro.
+      </p>
+    </div>
+
+    <h3>Tabela de saldo</h3>
+    <p>
+      A aba Estoque exibe uma tabela com todos os insumos cadastrados para a fazenda selecionada:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Coluna</th><th>Significado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Entradas</td><td>Total de unidades compradas (soma de todas as entradas)</td></tr>
+        <tr><td>Consumo</td><td>Total de unidades vinculadas em vacinações e tratamentos</td></tr>
+        <tr><td>Saldo</td><td>Entradas − Consumo; <strong style="color:#c0392b">negativo em vermelho</strong> quando o uso supera as entradas registradas</td></tr>
+        <tr><td>Gasto total</td><td>Soma dos valores de todas as entradas do produto</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Clique no nome do insumo para ver o histórico detalhado de entradas (compras), com
+      possibilidade de excluir uma entrada — a movimentação financeira vinculada é removida junto.
+    </p>
+
+    <h3>Insumos inativos</h3>
+    <p>
+      Produtos que saíram de uso podem ser inativados sem excluí-los. Inativos não aparecem
+      nos seletores de vacinações e tratamentos, mas mantêm o histórico e o saldo calculado.
+      Um checkbox na listagem permite exibi-los quando necessário.
+    </p>
+
+    <div class="nav-paginas">
+      <a href="reproducao.html">← Reprodução</a>
+      <a href="financeiro.html">Financeiro e Pessoal →</a>
+    </div>
+  </main>
+
+</div>
+<script src="../../assets/nav.js"></script>
+</body>
+</html>

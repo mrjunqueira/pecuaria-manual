@@ -94,6 +94,8 @@
         <tr><td>Lote</td><td>Estação de monta à qual esta cobertura pertence</td></tr>
         <tr><td>Data</td><td>Data da cobertura ou inseminação</td></tr>
         <tr><td>Tipo</td><td>Monta natural, IA ou IATF</td></tr>
+        <tr><td>Custo sêmen (R$)</td><td>Visível quando tipo = IATF — custo da dose utilizada</td></tr>
+        <tr><td>Custo protocolo (R$)</td><td>Visível quando tipo = IATF — custo do protocolo hormonal</td></tr>
         <tr><td>Observações</td><td>Notas livres (cio observado, protocolo usado, etc.)</td></tr>
       </tbody>
     </table>
@@ -117,6 +119,7 @@
     <h2>Registrando um parto</h2>
     <p>
       Acesse <strong>Reprodução → Partos</strong> e vincule o parto à cobertura da matriz.
+      As crias são registradas junto com o parto no mesmo formulário.
     </p>
     <table>
       <thead>
@@ -126,14 +129,15 @@
         <tr><td>Matriz</td><td>Vaca que pariu</td></tr>
         <tr><td>Cobertura</td><td>Cobertura da qual resultou este parto</td></tr>
         <tr><td>Data do parto</td><td>Data do nascimento</td></tr>
-        <tr><td>Tipo</td><td>Normal ou distócico (com dificuldade)</td></tr>
-        <tr><td>Observações</td><td>Assistência prestada, intercorrências</td></tr>
+        <tr><td>Tipo</td><td>Normal, distócico (com dificuldade) ou cesariana</td></tr>
+        <tr><td>Custo de assistência (R$)</td><td>Custo do veterinário ou assistência prestada no parto</td></tr>
+        <tr><td>Observações</td><td>Intercorrências, anotações clínicas</td></tr>
       </tbody>
     </table>
 
-    <h2>Registrando a cria (bezerro)</h2>
+    <h3>Crias registradas junto ao parto</h3>
     <p>
-      Após o parto, registre a cria vinculada ao parto. Cada bezerro é um registro individual.
+      Cada bezerro(a) é registrado individualmente no mesmo formulário do parto:
     </p>
     <table>
       <thead>
@@ -141,12 +145,19 @@
       </thead>
       <tbody>
         <tr><td>Sexo</td><td>Macho ou fêmea</td></tr>
-        <tr><td>Peso ao nascer</td><td>Em kg (opcional, mas recomendado)</td></tr>
+        <tr><td>Peso ao nascer (kg)</td><td>Recomendado — usado no custo de formação</td></tr>
         <tr><td>Identificação</td><td>Brinco, tatuagem ou número interno</td></tr>
         <tr><td>Status</td><td><code>vivo</code> ou <code>morto</code></td></tr>
-        <tr><td>Causa da morte</td><td>Se morto: diarreia, distócia, predador, etc.</td></tr>
+        <tr><td>Observações</td><td>Causa da morte, intercorrências</td></tr>
       </tbody>
     </table>
+
+    <h3>Ver crias de um parto</h3>
+    <p>
+      Na tabela de Partos, a coluna <strong>Crias</strong> exibe um resumo (ex: "2 total — 1♂ 1♀").
+      O botão <strong>Ver crias</strong> expande uma sub-tabela inline com os detalhes de cada cria
+      daquele parto. Clique em <strong>Fechar</strong> para recolher.
+    </p>
 
     <div class="destaque">
       <p>
